@@ -1,0 +1,69 @@
+{
+  // Mnemosyne Pro 1.1 运行配置
+  // 版本 1.1: 支持 heartbeat 自动同步 + memory-sync wrapper
+
+  // === 安装与写入安全 ===
+  "review_mode": true,
+  "non_destructive_install": true,
+  "preserve_unknown_memory_artifacts": true,
+
+  // === 作用域与晋升策略 ===
+  // scoped = 默认按更窄作用域写入（Pro 推荐）
+  // global = 默认全局共享（v2.0 旧值）
+  "sharing_mode": "scoped",
+  "scope_resolution": "narrowest-first",
+
+  // 全局晋升条件：至少重复 2 次或有显式标记才可晋升到全局
+  "global_promotion": {
+    "enabled": true,
+    "require_explicit": true,
+    "min_repeat_count": 2
+  },
+
+  // === 调度 ===
+  "schedule": {
+    "enabled": true,
+    "frequency": "daily",
+    "time": "03:00"
+  },
+
+  // === 输入源 ===
+  "intake": {
+    "feishu_enabled": true,
+    "tasks_enabled": true,
+    "feedback_enabled": true
+  },
+
+  // === 作用域开关 ===
+  "scopes": {
+    "global_enabled": true,
+    "agent_enabled": true,
+    "project_enabled": true,
+    "channel_enabled": true
+  },
+
+  // === 增量处理（Pro 新增）===
+  "incremental": {
+    "use_hash": true,
+    "skip_if_no_changes": true
+  },
+
+  // === 冲突策略（Pro 新增）===
+  "conflicts": {
+    "auto_resolve_safe_conflicts": true,
+    "require_review_for_scope_change": true
+  },
+
+  // === 发布目标（Pro 新增）===
+  "publish": {
+    "global_target": "memory/global/preferences.md",
+    "fallback_global_target": "MEMORY.md"
+  },
+
+  // === 兼容性 ===
+  "compatibility": {
+    "non_destructive_install": true,
+    "preserve_unknown_artifacts": true,
+    "legacy_layout_mode": "report_only"
+  }
+}

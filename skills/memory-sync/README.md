@@ -1,6 +1,6 @@
-# Mnemosyne Pro 1.1
+# Mnemosyne Pro 1.1 - OpenClaw 记忆系统技能包
 
-> OpenClaw 记忆系统自动化同步技能包 - 让 AI 持续"记住"你的偏好和对话
+> 完全自动化OpenClaw的记忆同步系统，让AI持续"记住"你的偏好和对话
 
 ## 特性
 
@@ -52,21 +52,13 @@ Mnemosyne 处理 (reconcile + publish)
 记忆持久化到 memory/global/preferences.md
 ```
 
-## 文件结构
+## 文件说明
 
-```
-mnemosyne-pro/
-├── scripts/
-│   └── memory-sync.js        # 核心同步脚本
-├── .mnemosyne/
-│   └── config.jsonc          # Mnemosyne 1.1 配置
-├── skills/
-│   └── memory-sync/
-│       ├── SKILL.md          # 完整技能文档
-│       └── README.md         # 快速开始指南
-├── SKILL.md                  # 主技能定义
-└── README.md                 # 本文件
-```
+| 文件 | 作用 |
+|------|------|
+| `memory-sync.js` | 核心同步脚本 |
+| `config.jsonc` | Mnemosyne 配置 |
+| `SKILL.md` | 技能定义（可选） |
 
 ## 配置
 
@@ -80,13 +72,6 @@ rm scripts/memory-sync.js
 
 # 移除 HEARTBEAT.md 中的调用指令
 ```
-
-## 更新日志
-
-### 1.1 (2026-04-15)
-- 首次发布
-- 支持 heartbeat 自动同步
-- 内置路径修复和错误处理
 
 ## 开源协议
 
