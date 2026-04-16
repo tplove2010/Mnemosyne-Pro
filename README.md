@@ -30,22 +30,22 @@
    将以下文件复制到你的 OpenClaw 工作区对应目录：
    
    ```
-   → scripts/memory-sync.js     → {workspace}/scripts/
-   → .mnemosyne/config.jsonc    → {workspace}/.mnemosyne/
-   → SKILL.md                   → {workspace}/ (可选)
+   → scripts/pro/memory-sync.js    → {workspace}/scripts/pro/
+   → .mnemosyne/config.jsonc       → {workspace}/.mnemosyne/
+   → SKILL.md                      → {workspace}/ (可选)
    ```
 
 2. **修改 HEARTBEAT.md**
    
    在工作区根目录的 `HEARTBEAT.md` 最后添加：
    ```markdown
-   - Run `node scripts/memory-sync.js` to sync daily session stats to Mnemosyne inbox.
+   - Run `node scripts/pro/memory-sync.js` to sync daily session stats to Mnemosyne inbox.
    ```
 
 3. **验证安装**
    ```bash
    cd {你的workspace路径}
-   node scripts/memory-sync.js
+   node scripts/pro/memory-sync.js
    ```
    
    成功输出：
@@ -184,18 +184,19 @@ Mnemosyne 处理 (reconcile + publish)
 ```
 mnemosyne-pro/
 ├── scripts/
-│   └── memory-sync.js        # 核心同步脚本（全平台通用）
+│   └── pro/
+│       └── memory-sync.js        # 核心同步脚本
 ├── .mnemosyne/
-│   ├── config.jsonc          # Mnemosyne 1.1 配置
-│   ├── state/                # 运行状态（自动生成）
-│   ├── cache/                # 缓存（自动生成）
-│   └── inbox/                # 输入队列（自动生成）
+│   ├── config.jsonc              # Mnemosyne 1.3 配置
+│   ├── state/                    # 运行状态（自动生成）
+│   ├── cache/                    # 缓存（自动生成）
+│   └── inbox/                    # 输入队列（自动生成）
 ├── skills/
 │   └── memory-sync/
-│       ├── SKILL.md          # 完整技能文档
-│       └── README.md         # 快速开始指南
-├── SKILL.md                  # 主技能定义
-└── README.md                 # 本文件
+│       ├── SKILL.md              # 完整技能文档
+│       └── README.md             # 快速开始指南
+├── SKILL.md                      # 主技能定义
+└── README.md                     # 本文件
 ```
 
 ---
