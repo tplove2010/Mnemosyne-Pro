@@ -1,4 +1,4 @@
-# Mnemosyne Pro 1.1
+# Mnemosyne Pro 1.3
 
 > OpenClaw 记忆系统自动化同步技能包 - 让 AI 持续"记住"你的偏好和对话
 
@@ -263,6 +263,12 @@ rm ~/.openclaw/workspace/scripts/memory-sync.js
 ---
 
 ## 更新日志
+
+### 1.3 (2026-04-17)
+- 语义 Recall 检索（embedding + keyword fallback）
+- 语义去重提示（semantic_dedupe, 相似度 ≥ 0.80）
+- 语义聚类归并（success/failure 事件自动合并）
+- 事件语义分类（semantic_event_classification）
 
 ### 1.1 (2026-04-15)
 - 首次发布
