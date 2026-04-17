@@ -1,6 +1,6 @@
-# Mnemosyne Pro 1.1 - Skill Package
+# Mnemosyne Pro 1.3 - Skill Package
 
-**版本**: 1.1  
+**版本**: 1.3  
 **平台**: OpenClaw  
 **作者**: William
 
