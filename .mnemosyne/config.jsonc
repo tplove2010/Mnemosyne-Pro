@@ -52,12 +52,4 @@
     "mode": "published-only",
     "preserve_source_tree": true
   }
-
-  // === NOTE: Semantic Enhancement ===
-  // The following are placeholder配置 for potential future use.
-  // They are NOT currently connected to the Core chain.
-  // Kept for reference only - not active:
-  //
-  // "semantic_recall": { "enabled": false, ... }
-  // "semantic_dedupe": { "enabled": false, ... }
 }

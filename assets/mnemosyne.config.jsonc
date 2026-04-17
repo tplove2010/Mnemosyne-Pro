@@ -52,10 +52,4 @@
     "mode": "published-only",
     "preserve_source_tree": true
   }
-
-  // === NOTE: Semantic Enhancement ===
-  // Placeholder配置 - 当前未连接到主链
-  // 
-  // "semantic_recall": { "enabled": false, "top_k": 5, "min_similarity": 0.6 },
-  // "semantic_dedupe": { "enabled": false, "min_similarity": 0.80 }
 }
