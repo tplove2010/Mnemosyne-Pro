@@ -25,33 +25,35 @@
 
 ### 通用步骤（所有系统）
 
-1. **复制文件到工作区**
+1. **复制完整 Pro 技能包到工作区**
    
-   将以下文件复制到你的 OpenClaw 工作区对应目录：
-   
+   复制整个 mnemosyne-pro 目录到你的 OpenClaw 工作区：
    ```
-   → scripts/memory-sync.js       → {workspace}/scripts/
-   → .mnemosyne/config.jsonc       → {workspace}/.mnemosyne/
-   → SKILL.md                      → {workspace}/ (可选)
+   mnemosyne-pro/ → {workspace}/
    ```
 
-2. **修改 HEARTBEAT.md**
+2. **初始化运行时结构**
+   ```bash
+   cd {workspace}
+   python scripts/init_runtime.py . --create-memory-md
+   ```
+
+3. **（可选）配置 Heartbeat 自动同步**
    
    在工作区根目录的 `HEARTBEAT.md` 最后添加：
    ```markdown
    - Run `node scripts/memory-sync.js` to sync daily session stats to Mnemosyne inbox.
    ```
 
-3. **验证安装**
-   ```bash
-   cd {你的workspace路径}
-   node scripts/memory-sync.js
-   ```
-   
-   成功输出：
-   ```
-   [MemorySync] ✅ Daily memory sync complete
-   ```
+4. **验证安装**
+   - 方式 1（手动同步）：
+     ```bash
+     node scripts/memory-sync.js
+     ```
+   - 方式 2（初始状态检查）：
+     ```bash
+     python scripts/report_status.py .
+     ```
 
 ---
 
@@ -182,20 +184,25 @@ Mnemosyne 处理 (reconcile + publish)
 ## 文件结构
 
 ```
-mnemosyne-pro/
-├── scripts/
-│   └── memory-sync.js            # 核心同步脚本
+mnemosyne-pro/                          # 完整的 Mnemosyne Pro 技能包
+├── scripts/                            # 核心主链脚本
+│   ├── init_runtime.py                 # 初始化运行时结构
+│   ├── stage_intake.py                 # 处理 inbox → staged
+│   ├── reconcile.py                    # 冲突检测与解决
+│   ├── publish.py                      # 写入持久化 memory
+│   ├── report_status.py                # 运行时状态报告
+│   ├── export_recall.py                # 导出 recall 包
+│   ├── archive_inbox.py                # 归档已处理 inbox
+│   ├── memory-sync.js                  # Heartbeat 同步封装
+│   ├── common.py                       # 公共函数
+│   ├── embedding_client.py             # 嵌入增强（可选）
+│   └── semantic_utils.py               # 语义工具（可选）
+├── assets/
+│   └── mnemosyne.config.jsonc         # 配置模板
 ├── .mnemosyne/
-│   ├── config.jsonc              # Mnemosyne 1.3 配置
-│   ├── state/                    # 运行状态（自动生成）
-│   ├── cache/                    # 缓存（自动生成）
-│   └── inbox/                    # 输入队列（自动生成）
-├── skills/
-│   └── memory-sync/
-│       ├── SKILL.md              # 完整技能文档
-│       └── README.md             # 快速开始指南
-├── SKILL.md                      # 主技能定义
-└── README.md                     # 本文件
+│   └── config.jsonc                    # 运行时配置
+├── SKILL.md                            # 主技能定义
+└── README.md                           # 本文件
 ```
 
 ---
@@ -203,6 +210,26 @@ mnemosyne-pro/
 ## 配置
 
 无需修改，脚本开箱即用。可选配置见 `.mnemosyne/config.jsonc`
+
+---
+
+## 主链命令
+
+```bash
+# 初始化（首次）
+python scripts/init_runtime.py <workspace> --create-memory-md
+
+# 每日同步（Heartbeat 触发）
+node scripts/memory-sync.js
+
+# 手动处理流程
+python scripts/stage_intake.py <workspace>     # 处理 inbox
+python scripts/reconcile.py <workspace>        # 冲突解决
+python scripts/publish.py <workspace>          # 写入 memory
+python scripts/report_status.py <workspace>    # 状态报告
+python scripts/export_recall.py <workspace> --query "..."
+python scripts/archive_inbox.py <workspace>    # 归档清理
+```
 
 ---
 
