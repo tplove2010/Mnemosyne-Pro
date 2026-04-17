@@ -45,15 +45,13 @@
    - Run `node scripts/memory-sync.js` to sync daily session stats to Mnemosyne inbox.
    ```
 
-4. **验证安装**
-   - 方式 1（手动同步）：
-     ```bash
-     node scripts/memory-sync.js
-     ```
-   - 方式 2（初始状态检查）：
-     ```bash
-     python scripts/report_status.py .
-     ```
+4. **验证安装（必须先 cd 到 workspace）**
+   ```bash
+   cd {你的workspace路径}
+   node scripts/memory-sync.js
+   ```
+   
+   **注意**：`memory-sync.js` 依赖当前工作目录为 workspace 根目录，必须先 `cd` 再执行。
 
 ---
 
