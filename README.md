@@ -57,6 +57,21 @@
 
 ---
 
+### Core vs Enhanced 模式
+
+**Core 模式（默认）**
+- 无需外部依赖，完整主链开箱即用
+- 脚本：init_runtime.py → stage_intake.py → reconcile.py → publish.py → recall → report
+- 包含文件：memory-sync.js (Heartbeat wrapper)
+
+**Enhanced 模式**
+- 当前状态：**未连接到主链**
+- 预留文件：embedding_client.py, semantic_utils.py
+- 配置项：semantic_recall, semantic_dedupe（当前为注释状态）
+- 未来可能通过外部 embedding 服务启用
+
+---
+
 ### Windows 安装
 
 #### 使用 PowerShell

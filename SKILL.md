@@ -1,6 +1,6 @@
 ---
 name: mnemosyne-pro
-description: OpenClaw durable memory governance system - manages cross-session memory including intake, reconcile, publish, recall, and archive. Includes semantic enhancement via embedding.
+description: OpenClaw durable memory governance system - manages cross-session memory including intake, reconcile, publish, recall, and archive. Default runs in Core mode without embedding dependency.
 ---
 
 # Mnemosyne Pro 1.3
@@ -14,6 +14,20 @@ description: OpenClaw durable memory governance system - manages cross-session m
 Mnemosyne Pro is the **durable memory governance system** for OpenClaw. It ensures AI remembers user preferences and conversation context across sessions.
 
 This is the **complete Mnemosyne Pro skill package** (not just a sync submodule).
+
+## Operation Modes
+
+### Core Mode (Default)
+- **Enabled by default** - no embedding dependency
+- Keyword and exact match based processing
+- Full workflow: init → stage_intake → reconcile → publish → recall → report
+- All Core scripts work without any external service
+
+### Enhanced Mode (Not Currently Active)
+- Semantic enhancement modules exist but NOT connected to Core chain
+- `embedding_client.py` and `semantic_utils.py` are placeholder only
+- Config options for `semantic_recall` and `semantic_dedupe` are present but INACTIVE
+- Future: may connect via external embedding service
 
 ## Core Components (Full Core Chain)
 

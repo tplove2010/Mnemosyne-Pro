@@ -38,7 +38,7 @@
     "fallback_global_target": "MEMORY.md"
   },
 
-  // 1.2 recall export
+  // recall export
   "recall_export": {
     "enabled": true,
     "default_limit": 8,
@@ -46,25 +46,18 @@
     "write_json": true
   },
 
-  // 1.2 archive handling
+  // archive handling
   "archive": {
     "enabled": false,
     "mode": "published-only",
     "preserve_source_tree": true
-  },
-  
-  // === 嵌入增强配置 (1.3 新增) ===
-  
-  // 语义 Recall 检索
-  "semantic_recall": {
-    "enabled": true,
-    "top_k": 5,
-    "min_similarity": 0.6
-  },
-  
-  // 语义去重提示
-  "semantic_dedupe": {
-    "enabled": true,
-    "min_similarity": 0.80
   }
+
+  // === NOTE: Semantic Enhancement ===
+  // The following are placeholder配置 for potential future use.
+  // They are NOT currently connected to the Core chain.
+  // Kept for reference only - not active:
+  //
+  // "semantic_recall": { "enabled": false, ... }
+  // "semantic_dedupe": { "enabled": false, ... }
 }
